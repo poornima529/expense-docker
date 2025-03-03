@@ -18,6 +18,6 @@ RUN rm -rf /etc/nginx/nginx.conf
 
 # RUN touch /var/run/nginx.pid && \
 #     chown -R nginx:nginx /var/run/nginx.pid /run/nginx.pid
-#COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY code /usr/share/nginx/html/
 # USER nginx
