@@ -10,7 +10,8 @@ RUN npm install
 # RUN addgroup -S expense && adduser -S expense -G expense && \
 #     mkdir /opt/backend && \
 #     chown -R expense:expense /opt/backend
-ENV DB_HOST="mysql"
+#ENV DB_HOST="mysql"
+ENV DB_HOST="localhost"
 # WORKDIR /opt/backend
 # USER expense
 # COPY --from=builder /opt/backend /opt/backend
