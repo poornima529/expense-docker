@@ -1,14 +1,17 @@
 #FROM node:20
+#FROM node:20.18.3-alpine3.21 
+#WORKDIR /opt/backend
+#COPY package.json .
+#COPY *.js .
+#RUN npm install
+
+
 FROM node:20.18.3-alpine3.21 
-WORKDIR /opt/backend
+RUN addgroup -S expense && adduser -S expense -G expense 
+RUN mkdir -p /opt/backend
 COPY package.json .
 COPY *.js .
 RUN npm install
-
-
-#FROM node:20.18.3-alpine3.21 AS builder
-RUN addgroup -S expense && adduser -S expense -G expense 
-RUN mkdir -p /opt/backend
 RUN chown -R expense:expense /opt/backend
 ENV DB_HOST="mysql"
 #ENV DB_HOST="localhost"
